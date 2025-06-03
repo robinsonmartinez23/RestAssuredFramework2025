@@ -1,0 +1,95 @@
+****** It is a powerful report, there is not necessary the use of logs ******
+
+1. Add de dependencies to the pom.xml file
+
+<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-rest-assured / Allure - Rest Assured-->
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-rest-assured</artifactId>
+      <version>2.29.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng / Allure - TestNG-->
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-testng</artifactId>
+      <version>2.29.0</version>
+    </dependency>
+
+2. Crete the @BeforeSuite in the Base Test
+
+    @BeforeSuite
+    public void setupAllureReport(){
+        RestAssured.filters((new AllureRestAssured()));
+    }
+
+3. The allure-results folder will be generated in the root of the project
+
+4. Visualize the allure report (Allure must be installed in the machine)
+   For Windows:
+
+   4.1 Check if scoop is installed in your system:
+   Note: scoop is to Windows as brew is to Mac
+
+   scoop --version
+
+   if not, run this command and a  from non-admin POWERSHELL not from command prompt::
+
+   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+   and then
+   irm get.scoop.sh | ie
+
+
+   4.2 Install Allure
+
+   Go to https://allurereport.org/docs/restassured-configuration/  > Install & Update > follow instructions -->
+   Instructions are:
+   a. In terminal. run this command
+
+      scoop install allure
+
+   b. Run this command to see if reports the last version was installed
+
+      allure -version
+
+   4.3 Go to path of the project in the command prompt and run this command: serve allure-results/
+
+   e.g.
+   C:\Users\RobinM\OneDrive\Documentos\Naveen2025APIRestAssureFW\RestAssureFW2025allure> serve allure-results/
+
+
+Annotations at class level
+
+e.g.
+@Epic("Epic 100: Go Rest Get User API Feature")
+@Story("US 100: feature go rest api - get user api")
+
+Annotations at test level
+
+e.g.
+@Description("getting all the users...")
+@Owner("Naveen Automation Labs")
+@Severity(SeverityLevel.CRITICAL)
+
+Other annotations (Method level)
+
+e.g.
+In Get method in restClient class
+
+The annotation is able to index the parameters then, if we want to show the value of Url in the Get method
+we can do this:
+
+    @Step("Calling GET api with base url: {0}")
+    public Response get(String baseUrl, String endPoint,
+                        Map<String, String> queryParams,
+                        Map<String,String> pathParams,
+                        AuthType authType,
+                        ContentType contentType){
+        RequestSpecification request = setup(baseUrl, authType, contentType);
+        applyParams(request, queryParams, pathParams);
+        Response response = request.get(endPoint).then().spec(responseSpec200or404).extract().response();
+        response.prettyPrint();
+        return response;
+    }
+
+
+

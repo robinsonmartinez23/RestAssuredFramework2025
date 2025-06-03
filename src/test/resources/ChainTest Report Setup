@@ -1,0 +1,60 @@
+ChainTest report is the new version of ExtentReport that has been depricated
+
+1. Set up ChainTest Report dependency from Maven
+2. Follow instructions in ChainTest Repository:
+   https://github.com/anshooarora/chaintest/tree/main/plugins/chaintest-testng
+   - Create chaintest.properties to your classpath, example: src/test/resources/chaintest.properties
+   - Add ChainTest Configuration according your needs
+     https://github.com/anshooarora/chaintest/blob/main/Config.md
+   - Add ChainListener
+        - a. Add ChainTestListener annotation @Listeners(ChainTestListener.class) in the BaseTest class
+             for creating global report (All tests)
+        - b. Add Listener individually for each *.xml test for creating reports individually
+
+     e.g.1 / Globally
+
+     import org.testng.annotations.Listeners;
+     import com.aventstack.chaintest.plugins.ChainTestListener;
+     import org.testng.Assert;
+     import org.testng.annotations.Test;
+
+     @Listeners(ChainTestListener.class)
+     protected RestClient restClient;
+
+         //***********API Base URLs***********//
+         protected static final String BASE_URL_GOREST= "https://gorest.co.in";
+         protected static final String BASE_URL_CONTACTS= "https://thinking-tester-contact-list.herokuapp.com";
+         protected static final String BASE_URL_REQRES = "https://reqres.in"; }
+         .
+         .
+         .
+         .
+     }
+
+     e.g.2 / Individually
+
+     <?xml version="1.0" encoding="UTF-8"?>
+     <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+     <suite name="Go Rest API Regression Test Suite" verbose="4">
+
+         <listeners>
+             <!-- <listener class-name="com.aventstack.chaintest.plugins.ChainTestListener"/> -->
+         </listeners>
+
+     .
+     .
+     .
+     .
+
+     </suite>
+
+
+3. Two reports will be generated Simple.html and Email.html in target/chaintest/resources
+
+4. Logs: Important info that we want to appear in the report
+
+   e.g.
+
+   ChainTestListener.log("User id: "+ userId);
+
