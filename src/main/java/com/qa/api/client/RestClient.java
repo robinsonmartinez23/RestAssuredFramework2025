@@ -50,7 +50,7 @@ public class RestClient {
                 request.header("Authorization", "Basic " + generateBasicAuthToken());
                 break;
             case API_KEY:
-                request.header("x-api-key", "api key");
+                request.header("x-api-key", ConfigManager.getProperty("apikey"));
                 break;
             case NO_AUTH:
                 System.out.println("Auth is not required");
