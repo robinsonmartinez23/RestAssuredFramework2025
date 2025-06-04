@@ -14,6 +14,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
+    <maven.plugin.validation>BRIEF</maven.plugin.validation>  <!--To avoid unnecessary warnings in Jenkins-->
   </properties>
 
 
