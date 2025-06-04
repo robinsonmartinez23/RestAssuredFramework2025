@@ -1,145 +1,332 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="3" total="14" passed="11" failed="0" skipped="0">
+<testng-results ignored="3" total="19" passed="15" failed="0" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-06-02T14:02:19 EDT" name="API Regression Master Test Suite" finished-at="2025-06-02T14:02:43 EDT" duration-ms="23212">
+  <suite started-at="2025-06-03T20:54:09 EDT" name="API Regression Master Test Suite" finished-at="2025-06-03T20:54:33 EDT" duration-ms="23984">
     <groups>
     </groups>
-    <test started-at="2025-06-02T14:02:19 EDT" name="Go Rest API Test - Get User" finished-at="2025-06-02T14:02:23 EDT" duration-ms="3877">
+    <test started-at="2025-06-03T20:54:09 EDT" name="Go Rest API Test - Get User" finished-at="2025-06-03T20:54:13 EDT" duration-ms="3438">
       <class name="com.qa.api.gorest.tests.GetUserTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.api.gorest.tests.GetUserTest@49049a04]" started-at="2025-06-02T14:02:19 EDT" name="setup" finished-at="2025-06-02T14:02:20 EDT" duration-ms="136" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.api.gorest.tests.GetUserTest@54a7079e]" started-at="2025-06-03T20:54:09 EDT" name="setup" finished-at="2025-06-03T20:54:10 EDT" duration-ms="136" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="getAllUsersTest()[pri:0, instance:com.qa.api.gorest.tests.GetUserTest@49049a04]" started-at="2025-06-02T14:02:20 EDT" name="getAllUsersTest" finished-at="2025-06-02T14:02:22 EDT" duration-ms="2531" status="PASS">
+        <test-method signature="getAllUsersTest()[pri:0, instance:com.qa.api.gorest.tests.GetUserTest@54a7079e]" started-at="2025-06-03T20:54:10 EDT" name="getAllUsersTest" finished-at="2025-06-03T20:54:12 EDT" duration-ms="2252" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getAllUsersTest -->
-        <test-method signature="getAllUsersWithQueryParamTest()[pri:0, instance:com.qa.api.gorest.tests.GetUserTest@49049a04]" started-at="2025-06-02T14:02:22 EDT" name="getAllUsersWithQueryParamTest" finished-at="2025-06-02T14:02:23 EDT" duration-ms="1094" status="PASS">
+        <test-method signature="getAllUsersWithQueryParamTest()[pri:0, instance:com.qa.api.gorest.tests.GetUserTest@54a7079e]" started-at="2025-06-03T20:54:12 EDT" name="getAllUsersWithQueryParamTest" finished-at="2025-06-03T20:54:13 EDT" duration-ms="935" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getAllUsersWithQueryParamTest -->
       </class> <!-- com.qa.api.gorest.tests.GetUserTest -->
     </test> <!-- Go Rest API Test - Get User -->
-    <test started-at="2025-06-02T14:02:23 EDT" name="Go Rest API Test - Create User" finished-at="2025-06-02T14:02:26 EDT" duration-ms="2440">
+    <test started-at="2025-06-03T20:54:13 EDT" name="Go Rest API Test - Create User" finished-at="2025-06-03T20:54:20 EDT" duration-ms="7563">
       <class name="com.qa.api.gorest.tests.CreateUserTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.api.gorest.tests.CreateUserTest@740cae06]" started-at="2025-06-02T14:02:23 EDT" name="setup" finished-at="2025-06-02T14:02:23 EDT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.api.gorest.tests.CreateUserTest@2af004b]" started-at="2025-06-03T20:54:13 EDT" name="setup" finished-at="2025-06-03T20:54:13 EDT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="createAUserTest()[pri:0, instance:com.qa.api.gorest.tests.CreateUserTest@740cae06]" started-at="2025-06-02T14:02:23 EDT" name="createAUserTest" finished-at="2025-06-02T14:02:26 EDT" duration-ms="2432" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createAUserTest -->
-        <test-method is-config="true" signature="setUpToken()[pri:0, instance:com.qa.api.gorest.tests.CreateUserTest@740cae06]" started-at="2025-06-02T14:02:23 EDT" name="setUpToken" finished-at="2025-06-02T14:02:23 EDT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="setUpToken()[pri:0, instance:com.qa.api.gorest.tests.CreateUserTest@2af004b]" started-at="2025-06-03T20:54:13 EDT" name="setUpToken" finished-at="2025-06-03T20:54:13 EDT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpToken -->
+        <test-method signature="createAUserWithDataProviderTest(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.api.gorest.tests.CreateUserTest@2af004b]" started-at="2025-06-03T20:54:13 EDT" name="createAUserWithDataProviderTest" data-provider="getUserExcelData" finished-at="2025-06-03T20:54:15 EDT" duration-ms="1826" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Carlos]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[male]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[active]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createAUserWithDataProviderTest -->
+        <test-method signature="createAUserWithDataProviderTest(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.api.gorest.tests.CreateUserTest@2af004b]" started-at="2025-06-03T20:54:15 EDT" name="createAUserWithDataProviderTest" data-provider="getUserExcelData" finished-at="2025-06-03T20:54:16 EDT" duration-ms="1114" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Raul]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[male]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[inactive]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createAUserWithDataProviderTest -->
+        <test-method signature="createAUserWithDataProviderTest(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.api.gorest.tests.CreateUserTest@2af004b]" started-at="2025-06-03T20:54:16 EDT" name="createAUserWithDataProviderTest" data-provider="getUserExcelData" finished-at="2025-06-03T20:54:17 EDT" duration-ms="1088" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Pedro]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[male]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[active]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createAUserWithDataProviderTest -->
+        <test-method signature="createAUserWithDataProviderTest(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.api.gorest.tests.CreateUserTest@2af004b]" started-at="2025-06-03T20:54:17 EDT" name="createAUserWithDataProviderTest" data-provider="getUserExcelData" finished-at="2025-06-03T20:54:18 EDT" duration-ms="1071" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Ana]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[female]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[active]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createAUserWithDataProviderTest -->
+        <test-method signature="createAUserWithDataProviderTest(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.api.gorest.tests.CreateUserTest@2af004b]" started-at="2025-06-03T20:54:18 EDT" name="createAUserWithDataProviderTest" data-provider="getUserExcelData" finished-at="2025-06-03T20:54:19 EDT" duration-ms="911" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Karla]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[female]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[active]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createAUserWithDataProviderTest -->
+        <test-method signature="createAUserWithPOJOTest()[pri:0, instance:com.qa.api.gorest.tests.CreateUserTest@2af004b]" started-at="2025-06-03T20:54:19 EDT" name="createAUserWithPOJOTest" finished-at="2025-06-03T20:54:20 EDT" duration-ms="1166" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createAUserWithPOJOTest -->
       </class> <!-- com.qa.api.gorest.tests.CreateUserTest -->
     </test> <!-- Go Rest API Test - Create User -->
-    <test started-at="2025-06-02T14:02:26 EDT" name="Go Rest API Test - Update User" finished-at="2025-06-02T14:02:30 EDT" duration-ms="4496">
+    <test started-at="2025-06-03T20:54:20 EDT" name="Go Rest API Test - Update User" finished-at="2025-06-03T20:54:23 EDT" duration-ms="2960">
       <class name="com.qa.api.gorest.tests.UpdateUserTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.api.gorest.tests.UpdateUserTest@117159c0]" started-at="2025-06-02T14:02:26 EDT" name="setup" finished-at="2025-06-02T14:02:26 EDT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.api.gorest.tests.UpdateUserTest@7f485fda]" started-at="2025-06-03T20:54:20 EDT" name="setup" finished-at="2025-06-03T20:54:20 EDT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="updateAUserTest()[pri:0, instance:com.qa.api.gorest.tests.UpdateUserTest@117159c0]" started-at="2025-06-02T14:02:26 EDT" name="updateAUserTest" finished-at="2025-06-02T14:02:30 EDT" duration-ms="4492" status="PASS">
+        <test-method signature="updateAUserTest()[pri:0, instance:com.qa.api.gorest.tests.UpdateUserTest@7f485fda]" started-at="2025-06-03T20:54:20 EDT" name="updateAUserTest" finished-at="2025-06-03T20:54:23 EDT" duration-ms="2956" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateAUserTest -->
-        <test-method is-config="true" signature="setUpToken()[pri:0, instance:com.qa.api.gorest.tests.UpdateUserTest@117159c0]" started-at="2025-06-02T14:02:26 EDT" name="setUpToken" finished-at="2025-06-02T14:02:26 EDT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="setUpToken()[pri:0, instance:com.qa.api.gorest.tests.UpdateUserTest@7f485fda]" started-at="2025-06-03T20:54:20 EDT" name="setUpToken" finished-at="2025-06-03T20:54:20 EDT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpToken -->
       </class> <!-- com.qa.api.gorest.tests.UpdateUserTest -->
     </test> <!-- Go Rest API Test - Update User -->
-    <test started-at="2025-06-02T14:02:30 EDT" name="Go Rest API Test - Delete User" finished-at="2025-06-02T14:02:34 EDT" duration-ms="4045">
+    <test started-at="2025-06-03T20:54:23 EDT" name="Go Rest API Test - Delete User" finished-at="2025-06-03T20:54:27 EDT" duration-ms="3547">
       <class name="com.qa.api.gorest.tests.DeleteUserTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.api.gorest.tests.DeleteUserTest@8519cb4]" started-at="2025-06-02T14:02:30 EDT" name="setup" finished-at="2025-06-02T14:02:30 EDT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.api.gorest.tests.DeleteUserTest@7ce026d3]" started-at="2025-06-03T20:54:23 EDT" name="setup" finished-at="2025-06-03T20:54:23 EDT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method is-config="true" signature="setUpToken()[pri:0, instance:com.qa.api.gorest.tests.DeleteUserTest@8519cb4]" started-at="2025-06-02T14:02:30 EDT" name="setUpToken" finished-at="2025-06-02T14:02:30 EDT" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpToken -->
-        <test-method signature="deleteUserTest()[pri:0, instance:com.qa.api.gorest.tests.DeleteUserTest@8519cb4]" started-at="2025-06-02T14:02:30 EDT" name="deleteUserTest" finished-at="2025-06-02T14:02:34 EDT" duration-ms="4039" status="PASS">
+        <test-method signature="deleteUserTest()[pri:0, instance:com.qa.api.gorest.tests.DeleteUserTest@7ce026d3]" started-at="2025-06-03T20:54:23 EDT" name="deleteUserTest" finished-at="2025-06-03T20:54:27 EDT" duration-ms="3540" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteUserTest -->
+        <test-method is-config="true" signature="setUpToken()[pri:0, instance:com.qa.api.gorest.tests.DeleteUserTest@7ce026d3]" started-at="2025-06-03T20:54:23 EDT" name="setUpToken" finished-at="2025-06-03T20:54:23 EDT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpToken -->
       </class> <!-- com.qa.api.gorest.tests.DeleteUserTest -->
     </test> <!-- Go Rest API Test - Delete User -->
-    <test started-at="2025-06-02T14:02:34 EDT" name="Product API Test - Get Product" finished-at="2025-06-02T14:02:35 EDT" duration-ms="811">
+    <test started-at="2025-06-03T20:54:27 EDT" name="Product API Test - Get Product" finished-at="2025-06-03T20:54:28 EDT" duration-ms="1147">
       <class name="com.qa.api.products.tests.ProductAPITest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.api.products.tests.ProductAPITest@14028087]" started-at="2025-06-02T14:02:34 EDT" name="setup" finished-at="2025-06-02T14:02:34 EDT" duration-ms="5" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.api.products.tests.ProductAPITest@359df09a]" started-at="2025-06-03T20:54:27 EDT" name="setup" finished-at="2025-06-03T20:54:27 EDT" duration-ms="4" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="getProductsTest()[pri:0, instance:com.qa.api.products.tests.ProductAPITest@14028087]" started-at="2025-06-02T14:02:34 EDT" name="getProductsTest" finished-at="2025-06-02T14:02:35 EDT" duration-ms="802" status="PASS">
+        <test-method signature="getProductsTest()[pri:0, instance:com.qa.api.products.tests.ProductAPITest@359df09a]" started-at="2025-06-03T20:54:27 EDT" name="getProductsTest" finished-at="2025-06-03T20:54:28 EDT" duration-ms="1139" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getProductsTest -->
       </class> <!-- com.qa.api.products.tests.ProductAPITest -->
     </test> <!-- Product API Test - Get Product -->
-    <test started-at="2025-06-02T14:02:35 EDT" name="Product API Test - Get Product With Json Path" finished-at="2025-06-02T14:02:36 EDT" duration-ms="712">
+    <test started-at="2025-06-03T20:54:28 EDT" name="Product API Test - Get Product With Json Path" finished-at="2025-06-03T20:54:29 EDT" duration-ms="815">
       <class name="com.qa.api.products.tests.ProductAPIWithJsonPathTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.api.products.tests.ProductAPIWithJsonPathTest@17fc391b]" started-at="2025-06-02T14:02:35 EDT" name="setup" finished-at="2025-06-02T14:02:35 EDT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.api.products.tests.ProductAPIWithJsonPathTest@4bdeaabb]" started-at="2025-06-03T20:54:28 EDT" name="setup" finished-at="2025-06-03T20:54:28 EDT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="getProductTest()[pri:0, instance:com.qa.api.products.tests.ProductAPIWithJsonPathTest@17fc391b]" started-at="2025-06-02T14:02:35 EDT" name="getProductTest" finished-at="2025-06-02T14:02:36 EDT" duration-ms="708" status="PASS">
+        <test-method signature="getProductTest()[pri:0, instance:com.qa.api.products.tests.ProductAPIWithJsonPathTest@4bdeaabb]" started-at="2025-06-03T20:54:28 EDT" name="getProductTest" finished-at="2025-06-03T20:54:29 EDT" duration-ms="811" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getProductTest -->
       </class> <!-- com.qa.api.products.tests.ProductAPIWithJsonPathTest -->
     </test> <!-- Product API Test - Get Product With Json Path -->
-    <test started-at="2025-06-02T14:02:36 EDT" name="Schema Test" finished-at="2025-06-02T14:02:38 EDT" duration-ms="1783">
+    <test started-at="2025-06-03T20:54:29 EDT" name="Schema Test" finished-at="2025-06-03T20:54:31 EDT" duration-ms="2134">
       <class name="com.qa.api.schema.tests.GoRestUserAPISchemaTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.api.schema.tests.GoRestUserAPISchemaTest@6b695b06]" started-at="2025-06-02T14:02:36 EDT" name="setup" finished-at="2025-06-02T14:02:36 EDT" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.api.schema.tests.GoRestUserAPISchemaTest@194fad1]" started-at="2025-06-03T20:54:29 EDT" name="setup" finished-at="2025-06-03T20:54:29 EDT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method is-config="true" signature="setToken()[pri:0, instance:com.qa.api.schema.tests.GoRestUserAPISchemaTest@6b695b06]" started-at="2025-06-02T14:02:36 EDT" name="setToken" finished-at="2025-06-02T14:02:36 EDT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="setToken()[pri:0, instance:com.qa.api.schema.tests.GoRestUserAPISchemaTest@194fad1]" started-at="2025-06-03T20:54:29 EDT" name="setToken" finished-at="2025-06-03T20:54:29 EDT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setToken -->
-        <test-method signature="createUserAPISchemaTest()[pri:0, instance:com.qa.api.schema.tests.GoRestUserAPISchemaTest@6b695b06]" started-at="2025-06-02T14:02:36 EDT" name="createUserAPISchemaTest" finished-at="2025-06-02T14:02:37 EDT" duration-ms="696" status="PASS">
+        <test-method signature="createUserAPISchemaTest()[pri:0, instance:com.qa.api.schema.tests.GoRestUserAPISchemaTest@194fad1]" started-at="2025-06-03T20:54:29 EDT" name="createUserAPISchemaTest" finished-at="2025-06-03T20:54:30 EDT" duration-ms="1153" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createUserAPISchemaTest -->
-        <test-method signature="getAllUsersAPISchemaTest()[pri:0, instance:com.qa.api.schema.tests.GoRestUserAPISchemaTest@6b695b06]" started-at="2025-06-02T14:02:37 EDT" name="getAllUsersAPISchemaTest" finished-at="2025-06-02T14:02:38 EDT" duration-ms="1078" status="PASS">
+        <test-method signature="getAllUsersAPISchemaTest()[pri:0, instance:com.qa.api.schema.tests.GoRestUserAPISchemaTest@194fad1]" started-at="2025-06-03T20:54:30 EDT" name="getAllUsersAPISchemaTest" finished-at="2025-06-03T20:54:31 EDT" duration-ms="973" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getAllUsersAPISchemaTest -->
       </class> <!-- com.qa.api.schema.tests.GoRestUserAPISchemaTest -->
     </test> <!-- Schema Test -->
-    <test started-at="2025-06-02T14:02:38 EDT" name="Amadeus API Test" finished-at="2025-06-02T14:02:42 EDT" duration-ms="3928">
+    <test started-at="2025-06-03T20:54:31 EDT" name="Amadeus API Test" finished-at="2025-06-03T20:54:32 EDT" duration-ms="1295">
       <class name="com.qa.api.amadeus.tests.AmadeusAPITest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.api.amadeus.tests.AmadeusAPITest@5b7a7f33]" started-at="2025-06-02T14:02:38 EDT" name="setup" finished-at="2025-06-02T14:02:38 EDT" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.api.amadeus.tests.AmadeusAPITest@3932c79a]" started-at="2025-06-03T20:54:31 EDT" name="setup" finished-at="2025-06-03T20:54:31 EDT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method is-config="true" signature="getOAuth2Token()[pri:0, instance:com.qa.api.amadeus.tests.AmadeusAPITest@5b7a7f33]" started-at="2025-06-02T14:02:38 EDT" name="getOAuth2Token" finished-at="2025-06-02T14:02:39 EDT" duration-ms="1227" status="PASS">
+        <test-method is-config="true" signature="getOAuth2Token()[pri:0, instance:com.qa.api.amadeus.tests.AmadeusAPITest@3932c79a]" started-at="2025-06-03T20:54:31 EDT" name="getOAuth2Token" finished-at="2025-06-03T20:54:32 EDT" duration-ms="1273" status="FAIL">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at java.base/java.util.concurrent.ConcurrentHashMap.putVal(ConcurrentHashMap.java:1011)
+at java.base/java.util.concurrent.ConcurrentHashMap.put(ConcurrentHashMap.java:1006)
+at java.base/java.util.Properties.put(Properties.java:1346)
+at java.base/java.util.Properties.setProperty(Properties.java:230)
+at com.qa.api.configmanager.ConfigManager.setProperty(ConfigManager.java:25)
+at com.qa.api.amadeus.tests.AmadeusAPITest.getOAuth2Token(AmadeusAPITest.java:26)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:361)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:296)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:823)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:590)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:829)
+at org.testng.TestRunner.run(TestRunner.java:602)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+at org.testng.TestNG.runSuites(TestNG.java:1099)
+at org.testng.TestNG.run(TestNG.java:1067)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getOAuth2Token -->
-        <test-method signature="getFlightDetailsTest()[pri:0, instance:com.qa.api.amadeus.tests.AmadeusAPITest@5b7a7f33]" started-at="2025-06-02T14:02:39 EDT" name="getFlightDetailsTest" finished-at="2025-06-02T14:02:42 EDT" duration-ms="2687" status="PASS">
+        <test-method signature="getFlightDetailsTest()[pri:0, instance:com.qa.api.amadeus.tests.AmadeusAPITest@3932c79a]" started-at="2025-06-03T20:54:32 EDT" name="getFlightDetailsTest" finished-at="2025-06-03T20:54:32 EDT" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at java.base/java.util.concurrent.ConcurrentHashMap.putVal(ConcurrentHashMap.java:1011)
+at java.base/java.util.concurrent.ConcurrentHashMap.put(ConcurrentHashMap.java:1006)
+at java.base/java.util.Properties.put(Properties.java:1346)
+at java.base/java.util.Properties.setProperty(Properties.java:230)
+at com.qa.api.configmanager.ConfigManager.setProperty(ConfigManager.java:25)
+at com.qa.api.amadeus.tests.AmadeusAPITest.getOAuth2Token(AmadeusAPITest.java:26)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:361)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:296)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:823)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:590)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:829)
+at org.testng.TestRunner.run(TestRunner.java:602)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+at org.testng.TestNG.runSuites(TestNG.java:1099)
+at org.testng.TestNG.run(TestNG.java:1067)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getFlightDetailsTest -->
       </class> <!-- com.qa.api.amadeus.tests.AmadeusAPITest -->
     </test> <!-- Amadeus API Test -->
-    <test started-at="2025-06-02T14:02:42 EDT" name="Basic Auth API Test" finished-at="2025-06-02T14:02:43 EDT" duration-ms="1001">
+    <test started-at="2025-06-03T20:54:32 EDT" name="Basic Auth API Test" finished-at="2025-06-03T20:54:33 EDT" duration-ms="971">
       <class name="com.qa.api.basicauth.tests.BasicAuthTest">
-        <test-method is-config="true" signature="setupAllureReport()[pri:0, instance:com.qa.api.basicauth.tests.BasicAuthTest@23f5b5dc]" started-at="2025-06-02T14:02:19 EDT" name="setupAllureReport" finished-at="2025-06-02T14:02:19 EDT" duration-ms="371" status="PASS">
+        <test-method is-config="true" signature="setupAllureReport()[pri:0, instance:com.qa.api.basicauth.tests.BasicAuthTest@626abbd0]" started-at="2025-06-03T20:54:09 EDT" name="setupAllureReport" finished-at="2025-06-03T20:54:09 EDT" duration-ms="380" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupAllureReport -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.api.basicauth.tests.BasicAuthTest@23f5b5dc]" started-at="2025-06-02T14:02:42 EDT" name="setup" finished-at="2025-06-02T14:02:42 EDT" duration-ms="4" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.api.basicauth.tests.BasicAuthTest@626abbd0]" started-at="2025-06-03T20:54:32 EDT" name="setup" finished-at="2025-06-03T20:54:32 EDT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="basicAuthTest()[pri:0, instance:com.qa.api.basicauth.tests.BasicAuthTest@23f5b5dc]" started-at="2025-06-02T14:02:42 EDT" name="basicAuthTest" finished-at="2025-06-02T14:02:43 EDT" duration-ms="994" status="PASS">
+        <test-method signature="basicAuthTest()[pri:0, instance:com.qa.api.basicauth.tests.BasicAuthTest@626abbd0]" started-at="2025-06-03T20:54:32 EDT" name="basicAuthTest" finished-at="2025-06-03T20:54:33 EDT" duration-ms="967" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- basicAuthTest -->

@@ -5,6 +5,7 @@
     <classes>
       <class name="com.qa.api.amadeus.tests.AmadeusAPITest">
         <methods>
+          <include name="setupAllureReport"/>
           <include name="getFlightDetailsTest"/>
           <include name="getOAuth2Token"/>
           <include name="setup"/>

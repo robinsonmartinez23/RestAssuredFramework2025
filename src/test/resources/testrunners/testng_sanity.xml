@@ -3,19 +3,18 @@
 
 <suite name="API Sanity Test Suite" verbose="4">
 
-
     <listeners>
         <!--  <listener class-name="com.aventstack.chaintest.plugins.ChainTestListener" />-->
-</listeners>
+    </listeners>
 
 
-<test name="Go Rest API Test - Get User">
-    <classes>
-        <class name="com.qa.api.gorest.tests.GetUserTest" />
-    </classes>
-</test>
+    <test name="Go Rest API Test - Get User">
+        <classes>
+            <class name="com.qa.api.gorest.tests.GetUserTest" />
+        </classes>
+    </test>
 
-<!-- <test name="Go Rest API Test - Create User">
+<!-- <test name="Go Rest API Test -  Create User">
     <classes>
         <class name="com.qa.api.gorest.tests.CreateUserTest" />
     </classes>
@@ -38,8 +37,7 @@
         <classes>
             <class name="com.qa.api.reqres.tests.ReqResTest" />
         </classes>
-    </test>
-
+    </test>-->
 
 
 
