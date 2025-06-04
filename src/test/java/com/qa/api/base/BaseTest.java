@@ -4,7 +4,6 @@ import com.aventstack.chaintest.plugins.ChainTestListener;
 import com.qa.api.client.RestClient;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
@@ -39,7 +38,7 @@ public class BaseTest {
         RestAssured.filters((new AllureRestAssured()));
     }
 
-    @BeforeClass
+    @BeforeTest
     public void setup(){
        restClient = new RestClient();
     }
