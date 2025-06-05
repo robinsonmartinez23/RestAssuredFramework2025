@@ -1,70 +1,103 @@
-pipeline {
-
+pipeline
+{
     agent any
 
-    stages {
-        stage("build") {
-            steps {
-                echo("build the project")
+    tools{
+        maven 'maven'
+        }
+
+    stages
+    {
+        stage('Build')
+        {
+            steps
+            {
+                 git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+            post
+            {
+                success
+                {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+                }
             }
         }
 
-        stage("Run Unit test") {
-            steps {
-                echo("run UTs")
+
+        stage("Deploy to QA"){
+            steps{
+                echo("deploy to QA done")
             }
         }
 
-        stage("Run Integration test") {
+        stage('Regression API Automation Test') {
             steps {
-                echo("run ITs")
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    git 'https://github.com/robinsonmartinez23/RestAssuredFramework2025'
+                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regression.xml"
+
+                }
             }
         }
 
-        stage("Deploy to dev") {
-            steps {
-                echo("deploy to dev")
+        stage('Publish Allure Reports') {
+           steps {
+                script {
+                    allure([
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: '/allure-results']]
+                    ])
+                }
             }
         }
 
-        stage("Deploy to QA") {
-            steps {
-                echo("deploy to QA")
+        stage('Publish ChainTest Report'){
+            steps{
+                     publishHTML([allowMissing: false,
+                                  alwaysLinkToLastBuild: false,
+                                  keepAll: true,
+                                  reportDir: 'target/chaintest',
+                                  reportFiles: 'Index.html',
+                                  reportName: 'HTML API Regression ChainTest Report',
+                                  reportTitles: ''])
             }
         }
 
-        stage("Run regression API test cases on QA") {
-            steps {
-                echo("Run API test cases on QA")
+        stage("Deploy to Stage"){
+            steps{
+                echo("deploy to Stage")
             }
         }
 
-        stage("Deploy to stage") {
+        stage('Sanity API Automation Test on Stage') {
             steps {
-                echo("deploy to stage")
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    git 'https://github.com/robinsonmartinez23/RestAssuredFramework2025'
+                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml"
+
+                }
             }
         }
 
-        stage("Run sanity API test cases on Stage") {
-            steps {
-                echo("Run sanity API test cases on Stage")
+        stage('Publish sanity ChainTest Report'){
+            steps{
+                     publishHTML([allowMissing: false,
+                                  alwaysLinkToLastBuild: false,
+                                  keepAll: true,
+                                  reportDir: 'target/chaintest',
+                                  reportFiles: 'Index.html',
+                                  reportName: 'HTML API Sanity ChainTest Report',
+                                  reportTitles: ''])
             }
         }
 
-        stage("Deploy to UTA") {
-            steps {
-                echo("deploy to UTA")
-            }
-        }
-
-        stage("Run UTA API test cases on UAT") {
-            steps {
-                echo("Run UTA API test cases on UAT")
-            }
-        }
-
-        stage("Deploy to PROD") {
-            steps {
+        stage("Deploy to PROD"){
+            steps{
                 echo("deploy to PROD")
             }
         }
