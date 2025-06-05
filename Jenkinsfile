@@ -57,9 +57,9 @@ pipeline {
             }
         }
 
-        stage("Run UTA API test cases on UTA") {
+        stage("Run UTA API test cases on UAT") {
             steps {
-                echo("Run UTA API test cases on UTA")
+                echo("Run UTA API test cases on UAT")
             }
         }
 
