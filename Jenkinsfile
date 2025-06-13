@@ -25,6 +25,20 @@ pipeline
             }
         }
 
+        stage("Deploy to Dev"){
+             steps{
+                  echo("deploy to Dev environment")
+             }
+        }
+
+        stage('Sanity API Automation Test on Dev env') {
+             steps {
+                  catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                      git 'https://github.com/robinsonmartinez23/RestAssuredFramework2025'
+                      bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml -Denv=dev"
+                  }
+             }
+        }
 
         stage("Deploy to QA"){
             steps{
@@ -36,8 +50,7 @@ pipeline
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/robinsonmartinez23/RestAssuredFramework2025'
-                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regression.xml"
-
+                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regression.xml -Denv=qa"
                 }
             }
         }
@@ -74,12 +87,11 @@ pipeline
             }
         }
 
-        stage('Sanity API Automation Test on Stage') {
+        stage('Sanity API Automation Test on Stage env') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/robinsonmartinez23/RestAssuredFramework2025'
-                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml"
-
+                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml -Denv=stage"
                 }
             }
         }
@@ -101,5 +113,14 @@ pipeline
                 echo("deploy to PROD")
             }
         }
+
+       stage('Sanity API Automation Test on PROD env') {
+             steps {
+                  catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                         git 'https://github.com/robinsonmartinez23/RestAssuredFramework2025'
+                         bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml -Denv=prod"
+                  }
+             }
+       }
     }
 }
