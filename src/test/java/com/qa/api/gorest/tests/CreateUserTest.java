@@ -23,14 +23,6 @@ import java.io.File;
 @Story("US 104: Feature go rest api - Create user api")
 public class CreateUserTest extends BaseTest {
 
-    private String tokenId ;
-    @BeforeClass
-    public void setUpToken(){
-        tokenId = "081368555efd9e49c46a729ba889822011be6ed2977146ecfcdd4d33e33ccf0e";
-        ConfigManager.setProperty("bearertoken",tokenId);
-    }
-
-
     /**
      * This method is useful when we have few (3-5) entries More than that is better use *.xml files
      */

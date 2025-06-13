@@ -15,13 +15,13 @@ public class BaseTest {
     protected RestClient restClient;
 
     //***********API Base URLs***********//
-    protected static final String BASE_URL_GOREST= "https://gorest.co.in";
-    protected final static String BASE_URL_CONTACTS= "https://thinking-tester-contact-list.herokuapp.com";
-    protected static final String BASE_URL_REQRES = "https://reqres.in";
-    protected final static String BASE_URL_BASIC_AUTH = "https://the-internet.herokuapp.com";
-    protected final static String BASE_URL_PRODUCTS = "https://fakestoreapi.com";
-    protected final static String BASE_URL_OAUTH2_AMADEUS = "https://test.api.amadeus.com";
-    protected final static String BASE_URL_ERGAST_CIRCUIT = "http://ergast.com";
+    protected static String BASE_URL_GOREST;
+    protected static String BASE_URL_CONTACTS;
+    protected static String BASE_URL_REQRES;
+    protected static String BASE_URL_BASIC_AUTH;
+    protected static String BASE_URL_PRODUCTS;
+    protected static String BASE_URL_OAUTH2_AMADEUS;
+    protected static String BASE_URL_ERGAST_CIRCUIT;
 
     //***********API Endpoints***********//
     protected final static String GOREST_USERS_ENDPOINT = "/public/v2/users";
@@ -37,6 +37,13 @@ public class BaseTest {
     @BeforeSuite
     public void setupAllureReport(){
         RestAssured.filters((new AllureRestAssured()));
+        BASE_URL_GOREST = ConfigManager.getProperty("baseurl.gorest").trim();
+        BASE_URL_CONTACTS = ConfigManager.getProperty("baseurl.contacts").trim();
+        BASE_URL_REQRES = ConfigManager.getProperty("baseurl.reqres").trim();
+        BASE_URL_BASIC_AUTH = ConfigManager.getProperty("baseurl.basicAuth").trim();
+        BASE_URL_PRODUCTS = ConfigManager.getProperty("baseurl.products").trim();
+        BASE_URL_OAUTH2_AMADEUS = ConfigManager.getProperty("baseurl.oauth2Amadeus").trim();
+        BASE_URL_ERGAST_CIRCUIT = ConfigManager.getProperty("baseurl.ergastCircuit").trim();
     }
 
     @BeforeTest

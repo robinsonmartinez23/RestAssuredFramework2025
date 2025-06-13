@@ -7,11 +7,19 @@ import java.util.Properties;
 public class ConfigManager {
     private static Properties properties = new Properties();
 
+    // mvn clean install -Denv=qa/stage/dev/prod/uat  --> select the environment
+    // mvn clean install --> No environment selected (We need to set default env.)
+    // env --> environment variable (System)
     static {
-      InputStream inputStream = ConfigManager.class.getClassLoader().getResourceAsStream("config/config.properties");
+      String envName = System.getProperty("env","prod");
+      System.out.println("Running test on environment: "+envName);
+      String fileName = "config_"+envName+".properties";
+      //InputStream inputStream = ConfigManager.class.getClassLoader().getResourceAsStream("config/config.properties");
+      InputStream inputStream = ConfigManager.class.getClassLoader().getResourceAsStream(fileName);
       if (inputStream != null) {
           try {
               properties.load(inputStream);
+              //System.out.println("properties ---> "+properties);
           } catch (IOException e) {
               e.printStackTrace();
           }

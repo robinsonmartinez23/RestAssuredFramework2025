@@ -19,13 +19,6 @@ import org.testng.annotations.Test;
 @Story("US 102: Feature go rest api - Update user api")
 public class UpdateUserTest extends BaseTest {
 
-    private String tokenId ;
-    @BeforeClass
-    public void setUpToken(){
-        tokenId = "081368555efd9e49c46a729ba889822011be6ed2977146ecfcdd4d33e33ccf0e";
-        ConfigManager.setProperty("bearertoken",tokenId);
-    }
-
     @Test
     public void updateAUserTest() {
         // 1. Create a user - POST
