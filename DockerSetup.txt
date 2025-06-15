@@ -1,0 +1,156 @@
+============================================================
+       DOCKER WITH DOCKERFILE SETUP FOR API TESTING
+============================================================
+
+Author: Robinson Martinez
+Framework: RestAssuredFW
+image name: jan2025apiframework
+Base Image: maven:3.6.3-openjdk-17
+
+------------------------------------------------------------
+1. PREREQUISITES
+------------------------------------------------------------
+- Docker installed
+- Docker Hub account
+- Valid Maven project structure
+- Presence of pom.xml and src folder
+
+------------------------------------------------------------
+2. DOCKERFILE CONTENT
+------------------------------------------------------------
+
+FROM maven:3.6.3-openjdk-17
+
+WORKDIR /app
+
+COPY pom.xml .
+
+RUN mvn dependency:go-offline -B
+
+COPY src ./src
+
+RUN mvn clean package -DskipTests=true -B
+
+CMD ["mvn", "test"]
+
+------------------------------------------------------------
+3. BUILDING THE IMAGE
+------------------------------------------------------------
+
+1. Log in to Docker Hub:
+docker login
+
+Note: docker login is not necessary if we already logged in in Docker Desktop (UI)
+
+2. Build the Docker image:
+docker build -t robinsonmartinez23/jan2025framework:1.0 .
+
+-t = tags the image with a name and version.
+. = tells Docker to look for the Dockerfile in the current folder (root directory of the project).
+
+3. Try run image locally before push (Read = RUNNING TESTS FROM IMAGE)
+
+4. Push the image:
+docker push robinsonmartinez23/jan2025framework:1.0
+
+------------------------------------------------------------
+4. RUNNING TESTS FROM IMAGE
+------------------------------------------------------------
+
+For Mac:
+No matter pom.xml variable set up. e.g. <suiteXmlFile>${abcdefg}</suiteXmlFile>
+The "-Dsurefire.suiteXmlFiles" is a property of surefire and will make it run regardless.
+docker run -v .:/app robinsonmartinez23/jan2025framework:1.0 mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regression.xml -Denv=prod
+if we DO NOT use "-Dsurefire.suiteXmlFiles" then pom.xml variable must to mach with docker command -D
+e.g. <suiteXmlFile>${suiteXmlFiles}</suiteXmlFile>
+docker run -v ${PWD}:/app robinsonmartinez23/jan2025framework:1.0 mvn test "-DsuiteXmlFiles=/app/src/test/resources/testrunners/testng_regression.xml" -Denv=prod
+
+For Windows PowerShell:
+No matter pom.xml variable set up. e.g. <suiteXmlFile>${abcdefg}</suiteXmlFile>
+The "-Dsurefire.suiteXmlFiles" is a property of surefire and will make it run regardless.
+docker run -v ${PWD}:/app robinsonmartinez23/jan2025framework:1.0 mvn test "-Dsurefire.suiteXmlFiles=/app/src/test/resources/testrunners/testng_regression.xml" -Denv=prod
+if we DO NOT use "-Dsurefire.suiteXmlFiles" then pom.xml variable must to mach docker command -D
+e.g. <suiteXmlFile>${suiteXmlFiles}</suiteXmlFile>
+docker run -v ${PWD}:/app robinsonmartinez23/jan2025framework:1.0 mvn test "-DsuiteXmlFiles=/app/src/test/resources/testrunners/testng_regression.xml" -Denv=prod
+
+For Windows CMD:
+No matter pom.xml variable set up. e.g. <suiteXmlFile>${abcdefg}</suiteXmlFile>
+The "-Dsurefire.suiteXmlFiles" is a property of surefire and will make it run regardless.
+docker run -v %cd%:/app robinsonmartinez23/jan2025framework:1.0 mvn test "-Dsurefire.suiteXmlFiles=/app/src/test/resources/testrunners/testng_regression.xml" -Denv=prod
+if we DO NOT use "-Dsurefire.suiteXmlFiles" then pom.xml variable must to mach docker command -D
+e.g. <suiteXmlFile>${suiteXmlFiles}</suiteXmlFile>
+docker run -v ${PWD}:/app robinsonmartinez23/jan2025framework:1.0 mvn test "-DsuiteXmlFiles=/app/src/test/resources/testrunners/testng_regression.xml" -Denv=prod
+
+------------------------------------------------------------
+6. CLEANING UP DOCKER
+------------------------------------------------------------
+
+1. 🧼 Remove stopped containers:
+docker container prune
+
+2. 🧹 Remove unused containers, networks, images (not in use):
+docker system prune -a
+
+3. 📦List all Docker images:
+docker images
+
+4. 🚛 Remove an image:
+docker rmi <image_id>
+
+5. Remove All Unused Images
+docker image prune
+
+6. 🛑 Remove a container:
+docker rm <container_id>
+
+7. 🚫 Stop a running container:
+docker stop <container_id>
+
+
+
+------------------------------------------------------------
+6. OTHER USEFUL COMMANDS
+------------------------------------------------------------
+
+List Running Containers
+docker ps -a
+
+🔍 Inspect a container:
+docker inspect <container_id>
+
+📄 View container logs:
+docker logs <container_id>
+
+Delete generated folders:
+rm -rf target allure-results
+
+✏️ Rename image:
+docker tag <old image:version> <new image:version>
+docker tag robinsonmartinez23/jan2025framework:1.0 robinsonmartinez23/jan2025apiframework:1.0
+
+Pull an Image
+docker pull <image-name>:<tag>
+
+------------------------------------------------------------
+7. REMOVING IMAGES SAFELY
+------------------------------------------------------------
+A container is based on an image. Therefore:
+
+You must stop and delete the container first before removing its image.
+
+✅ Correct order:
+
+docker stop <container_id>
+
+docker rm <container_id>
+
+docker rmi <image_id>
+
+Otherwise, Docker will throw an error preventing you from deleting an image still in use.
+
+------------------------------------------------------------
+8. EXPECTED RESULT
+------------------------------------------------------------
+- Tests should run successfully
+- Console should show: BUILD SUCCESS
+- target and allure-results folders will be generated if volume is mapped
