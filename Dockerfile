@@ -4,7 +4,7 @@
 # Uses an official Maven image that comes pre-installed with OpenJDK 11 and Maven 3.6.3.
 # This ensures a consistent build environment and eliminates the need to manually install Java or Maven.
 # It's ideal for lightweight containers and CI/CD pipelines.
-FROM maven:3.6.3-openjdk-11
+FROM maven:3.6.3-openjdk-17
 
 # ------------------------------------------------------------
 # Layer 2. Set the Working Directory Inside the Container
