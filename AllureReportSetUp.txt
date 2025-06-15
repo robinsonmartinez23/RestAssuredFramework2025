@@ -51,7 +51,7 @@
 
       allure -version
 
-   4.3 Go to path of the project in the command prompt and run this command: serve allure-results/
+   4.3 Go to the path of the project in the command prompt and run this command: serve allure-results/
 
    e.g.
    C:\Users\RobinM\OneDrive\Documentos\Naveen2025APIRestAssureFW\RestAssureFW2025allure> serve allure-results/
@@ -90,6 +90,3 @@ we can do this:
         response.prettyPrint();
         return response;
     }
-
-
-

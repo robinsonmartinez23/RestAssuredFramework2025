@@ -57,4 +57,3 @@ ChainTest report is the new version of ExtentReport that has been depricated
    e.g.
 
    ChainTestListener.log("User id: "+ userId);
-
