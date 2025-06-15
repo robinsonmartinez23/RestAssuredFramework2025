@@ -12,8 +12,11 @@ pipeline
         {
             steps
             {
-                 git 'https://github.com/jglick/simple-maven-project-with-tests.git'
-                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
+//                  git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+//                  bat "mvn -Dmaven.test.failure.ignore=true clean package"
+//                  To make git RestAssuredFramework2025 without fails includeProperties the pipeline
+                    git 'https://github.com/robinsonmartinez23/RestAssuredFramework2025'
+                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml -Denv=prod"
             }
             post
             {
