@@ -1,0 +1,83 @@
+This Jenkinsfile defines a local CI pipeline that runs directly from your local project
+directory without relying on GitHub or remote repositories. It builds and tests a
+Maven-based API project using preconfigured suites and generates reports from the
+local workspace.
+
+The below Jenkinsfile must be added to the pipeline -> Configure > pipeline > Definition Pipeline script
+
+pipeline {
+    agent any
+
+    tools {
+        maven 'maven' // Make sure to have configured Maven with this name in Jenkins tools (maven)
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo '▶️ Building the project...'
+                bat 'mvn clean install -DskipTests=true'
+            }
+        }
+
+        stage('Sanity API Tests') {
+            steps {
+                echo '✅ Running sanity tests...'
+                bat 'mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml -Denv=prod'
+            }
+        }
+
+        stage('Regression API Tests') {
+            steps {
+                echo '🧪 Running regression tests...'
+                bat 'mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regression.xml -Denv=prod'
+            }
+        }
+
+        stage('Publish Allure Report') {
+            steps {
+                echo '📊 Publishing Allure report...'
+                allure([
+                    includeProperties: false,
+                    jdk: '',
+                    properties: [],
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: '/allure-results']]
+                ])
+            }
+        }
+
+        stage('Publish ChainTest Report') {
+            steps {
+                echo '🧾 Publishing ChainTest report...'
+                publishHTML([
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: 'target/chaintest',
+                    reportFiles: 'Index.html',
+                    reportName: 'HTML API Regression ChainTest Report',
+                    reportTitles: ''
+                ])
+            }
+        }
+    }
+}
+
+----------------------------------------
+✅ Highlights:
+----------------------------------------
+✅ Builds the local Maven project without running tests (clean install -DskipTests=true).
+✅ Executes two separate TestNG suites: Sanity and Regression.
+✅ Publishes an Allure report from allure-results folder.
+✅ Publishes a custom ChainTest HTML report from target/chaintest.
+✅ Runs entirely from local files — no git or remote access needed.
+✅ Designed for Windows (bat commands), ideal for local Jenkins instances on Windows OS.
+
+----------------------------------------
+🎯 Ideal for:
+----------------------------------------
+✅ Practicing local Jenkins pipelines without using Docker or GitHub.
+✅ Validating Maven and TestNG integrations in a local development environment.
+✅ Understanding Jenkins reporting with Allure and publishHTML plugins.
+✅ Demonstrating local CI capabilities before moving to remote or container-based builds.

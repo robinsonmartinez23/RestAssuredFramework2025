@@ -1,0 +1,20 @@
+This Jenkinsfile represents a complete sample pipeline that simulates a typical
+Continuous Integration and Deployment (CI/CD) process. Although it does not execute
+real functional tasks, its purpose is to demonstrate how to structure multiple
+stages and steps, including:
+
+----------------------------------------
+✅ Highlights:
+----------------------------------------
+✅ Building a Maven project
+✅ Simulated deployments to various environments (Dev, QA, Stage, PROD)
+✅ Execution of utomated tests using TestNG in different suites (Sanity, Regression)
+✅ Publishing reports (Allure, ChainTest)
+
+----------------------------------------
+🎯 Ideal for:
+----------------------------------------
+✅ Practicing and understanding the structure of a Jenkinsfile
+✅ Seeing how to use commands such as bat, catchError, publishHTML, and allure
+✅ Simulating integration and testing pipelines in real-world environments
+

@@ -1,0 +1,20 @@
+This Jenkinsfile simulates a full CI/CD pipeline across multiple deployment
+stages (Dev, QA, Stage, PROD), but only uses a single test environment (-Denv=prod)
+for all API test stages. This reflects a training or educational scenario where
+different environments are not actually implemented.
+
+----------------------------------------
+✅ Highlights:
+----------------------------------------
+✅ Builds a simple Maven project from GitHub.
+✅ Runs automated TestNG suites: Sanity and Regression.
+✅ Deploy stages are simulated with echo statements.
+✅ Publishes Allure and HTML ChainTest reports.
+✅ Uses -Denv=prod in all test stages regardless of the stage name, since there is only one real environment.
+
+----------------------------------------
+🎯 Ideal for:
+----------------------------------------
+✅ Learning how to structure real-world Jenkins pipelines using GitHub repositories.
+✅ Practicing report generation and error handling with catchError.
+✅ Understanding how pipelines can simulate multi-environment stages even with a single active environment.
