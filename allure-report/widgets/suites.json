@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"169f333dbbde8324fef95acf940a2fa3","name":"API Regression Master Test Suite","statistic":{"failed":0,"broken":0,"skipped":0,"passed":15,"unknown":3,"total":18}},{"uid":"63e2cbf8dc8d08d251d64bbb5b2efabe","name":"API Sanity Test Suite","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
