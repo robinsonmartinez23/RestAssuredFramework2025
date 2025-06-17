@@ -19,8 +19,14 @@ pipeline {
         stage('Clean Previous Artifacts') {
             steps {
                 echo '🧹 Limpiando carpetas antiguas...'
-                bat 'del /q /s target\\*.* > nul'
-                bat 'del /q /s allure-report\\*.* > nul'
+                bat '''
+                if exist target (
+                     del /q /s target\\*.* > nul
+                )
+                if exist allure-report (
+                    del /q /s allure-report\\*.* > nul
+                )
+               '''
             }
         }
 
