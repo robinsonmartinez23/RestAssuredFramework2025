@@ -1,0 +1,76 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'maven' // Asegúrate de tener configurado Maven con este nombre
+    }
+
+    stages {
+
+        stage('Check Maven & Workspace') {
+            steps {
+                echo '🔍 Verificando entorno Maven y contenido del workspace...'
+                bat 'where mvn'
+                bat 'mvn -v'
+                bat 'dir'
+            }
+        }
+
+        stage('Clean Previous Artifacts') {
+            steps {
+                echo '🧹 Limpiando carpetas antiguas...'
+                bat 'del /q /s target\\*.* > nul'
+                bat 'del /q /s allure-report\\*.* > nul'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo '🛠️ Compilando el proyecto (sin ejecutar tests)...'
+                bat 'mvn clean install -DskipTests=true'
+            }
+        }
+
+        stage('Sanity API Tests') {
+            steps {
+                echo '✅ Ejecutando pruebas SANITY...'
+                bat 'mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml -Denv=prod'
+            }
+        }
+
+        stage('Regression API Tests') {
+            steps {
+                echo '🔁 Ejecutando pruebas REGRESSION...'
+                bat 'mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regression.xml -Denv=prod'
+            }
+        }
+
+        stage('Publicar Allure Report') {
+            steps {
+                echo '📊 Generando reporte Allure...'
+                allure([
+                    includeProperties: false,
+                    jdk: '',
+                    properties: [],
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: 'allure-results']]
+                ])
+            }
+        }
+
+        stage('Publicar HTML ChainTest Report') {
+            steps {
+                echo '🧾 Publicando reporte HTML ChainTest...'
+                publishHTML([
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: 'target/chaintest',
+                    reportFiles: 'Index.html',
+                    reportName: 'HTML API Regression ChainTest Report',
+                    reportTitles: ''
+                ])
+            }
+        }
+    }
+}
