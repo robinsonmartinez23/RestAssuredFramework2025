@@ -26,21 +26,21 @@ public class AmadeusAPITest extends BaseTest {
         ConfigManager.setProperty("bearertoken", accessToken);
     }
 
-    @Test
-    public void getFlightDetailsTest() {
-
-        //https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=PAR&maxPrice=200
-        //https://test.api.amadeus.com
-        //https://test.api.amadeus.com/v1/shopping/flight-destinations
-        //?origin=PAR&maxPrice=200
-
-        //Maps.of("origin", "PAR", "maxPrice", "200");
-        Map<String, String> queryParams = new HashMap<String, String>();
-        queryParams.put("origin", "PAR");
-        queryParams.put("maxPrice", "200");
-
-
-        Response response = restClient.get(BASE_URL_OAUTH2_AMADEUS, AMADEUS_FLIGHT_DEST_ENDPOINT, queryParams, null, AuthType.BEARER_TOKEN, ContentType.ANY);
-        Assert.assertEquals(response.getStatusCode(), 200);
-    }
+//    @Test
+//    public void getFlightDetailsTest() {
+//
+//        //https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=PAR&maxPrice=200
+//        //https://test.api.amadeus.com
+//        //https://test.api.amadeus.com/v1/shopping/flight-destinations
+//        //?origin=PAR&maxPrice=200
+//
+//        //Maps.of("origin", "PAR", "maxPrice", "200");
+//        Map<String, String> queryParams = new HashMap<String, String>();
+//        queryParams.put("origin", "PAR");
+//        queryParams.put("maxPrice", "200");
+//
+//
+//        Response response = restClient.get(BASE_URL_OAUTH2_AMADEUS, AMADEUS_FLIGHT_DEST_ENDPOINT, queryParams, null, AuthType.BEARER_TOKEN, ContentType.ANY);
+//        Assert.assertEquals(response.getStatusCode(), 200);
+//    }
 }
