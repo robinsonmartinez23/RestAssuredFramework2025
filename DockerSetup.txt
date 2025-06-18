@@ -63,7 +63,7 @@ The "-Dsurefire.suiteXmlFiles" is a property of surefire and will make it run re
 docker run -v .:/app robinsonmartinez23/jan2025framework:1.0 mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regression.xml -Denv=prod
 if we DO NOT use "-Dsurefire.suiteXmlFiles" then pom.xml variable must to mach with docker command -D
 e.g. <suiteXmlFile>${suiteXmlFiles}</suiteXmlFile>
-docker run -v ${PWD}:/app robinsonmartinez23/jan2025framework:1.0 mvn test "-DsuiteXmlFiles=/app/src/test/resources/testrunners/testng_regression.xml" -Denv=prod
+docker run -v .:/app robinsonmartinez23/jan2025framework:1.0 mvn test "-DsuiteXmlFiles=/app/src/test/resources/testrunners/testng_regression.xml" -Denv=prod
 
 For Windows PowerShell:
 No matter pom.xml variable set up. e.g. <suiteXmlFile>${abcdefg}</suiteXmlFile>
@@ -76,10 +76,10 @@ docker run -v ${PWD}:/app robinsonmartinez23/jan2025framework:1.0 mvn test "-Dsu
 For Windows CMD:
 No matter pom.xml variable set up. e.g. <suiteXmlFile>${abcdefg}</suiteXmlFile>
 The "-Dsurefire.suiteXmlFiles" is a property of surefire and will make it run regardless.
-docker run -v %cd%:/app robinsonmartinez23/jan2025framework:1.0 mvn test "-Dsurefire.suiteXmlFiles=/app/src/test/resources/testrunners/testng_regression.xml" -Denv=prod
+docker run -v $(pwd):/app robinsonmartinez23/jan2025framework:1.0 mvn test "-Dsurefire.suiteXmlFiles=/app/src/test/resources/testrunners/testng_regression.xml" -Denv=prod
 if we DO NOT use "-Dsurefire.suiteXmlFiles" then pom.xml variable must to mach docker command -D
 e.g. <suiteXmlFile>${suiteXmlFiles}</suiteXmlFile>
-docker run -v ${PWD}:/app robinsonmartinez23/jan2025framework:1.0 mvn test "-DsuiteXmlFiles=/app/src/test/resources/testrunners/testng_regression.xml" -Denv=prod
+docker run -v $(pwd):/app robinsonmartinez23/jan2025framework:1.0 mvn test "-DsuiteXmlFiles=/app/src/test/resources/testrunners/testng_regression.xml" -Denv=prod
 
 ------------------------------------------------------------
 6. CLEANING UP DOCKER
