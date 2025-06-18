@@ -56,6 +56,9 @@ docker push robinsonmartinez23/jan2025framework:1.0
 ------------------------------------------------------------
 4. RUNNING TESTS FROM IMAGE
 ------------------------------------------------------------
+****************************************************
+IMPORTANT: Go to the path of the project to run it!
+****************************************************
 
 For Mac:
 No matter pom.xml variable set up. e.g. <suiteXmlFile>${abcdefg}</suiteXmlFile>
