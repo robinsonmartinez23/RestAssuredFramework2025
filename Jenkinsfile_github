@@ -13,14 +13,14 @@ pipeline
             steps
             {
                  git 'https://github.com/robinsonmartinez23/RestAssuredFramework2025'
-                 // bat "mvn -Dmaven.test.failure.ignore=true clean package
+                 // bat "mvn -Dmaven.test.failure.ignore=true clean package    // If runs all test in th build
                  bat "mvn -Dmaven.test.skip=true clean package"
             }
             post
             {
                 success
                 {
-                    junit '**/target/surefire-reports/TEST-*.xml'
+                    // junit '**/target/surefire-reports/TEST-*.xml'  // If runs all test in th build
                     archiveArtifacts 'target/*.jar'
                 }
             }
