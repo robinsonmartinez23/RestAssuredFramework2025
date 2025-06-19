@@ -3,8 +3,10 @@ package com.qa.api.base;
 import com.aventstack.chaintest.plugins.ChainTestListener;
 import com.qa.api.client.RestClient;
 import com.qa.api.configmanager.ConfigManager;
+import com.qa.api.moking.WireMockSetup;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
@@ -34,6 +36,10 @@ public class BaseTest {
     protected final static String AMADEUS_FLIGHT_DEST_ENDPOINT = "/v1/shopping/flight-destinations";
     protected final static String ERGAST_CIRCUIT_ENDPOINT = "/api/f1/2017/circuits.xml";
 
+    //***********Localhost***********//
+    protected final static String BASE_URL_MOCK_SERVER = "http://localhost:8089";
+
+
     @BeforeSuite
     public void setupAllureReport(){
         RestAssured.filters((new AllureRestAssured()));
@@ -49,5 +55,11 @@ public class BaseTest {
     @BeforeTest
     public void setup(){
        restClient = new RestClient();
+        WireMockSetup.startWireMockeServer();
+
+    }
+    @AfterTest
+    public void stopMockServer(){
+        WireMockSetup.stopWireMockServer();
     }
 }

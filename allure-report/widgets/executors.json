@@ -1,1 +1,0 @@
-[{"name":"Jenkins","type":"jenkins","url":"http://localhost:8080/","buildOrder":15,"buildName":"APIFrameworkPipeline_Local_PipelineScript #15","buildUrl":"http://localhost:8080/job/APIFrameworkPipeline_Local_PipelineScript/15/","reportName":"AllureReport","reportUrl":"http://localhost:8080/job/APIFrameworkPipeline_Local_PipelineScript/15/allure"}]
